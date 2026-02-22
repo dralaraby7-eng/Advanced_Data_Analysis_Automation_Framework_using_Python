@@ -134,7 +134,6 @@ This project is built using:
 
 ## 📌 Repository Structure
 
-```bash
 /data
 /core
 /preprocessing
@@ -145,3 +144,124 @@ This project is built using:
 main.py
 requirements.txt
 README.md
+
+---
+
+## 📌 Use Cases
+
+This framework can be applied to a wide range of real-world analytical scenarios, including:
+
+- **Business Intelligence Automation**  
+  Automating periodic data analysis, KPI calculations, and business reports.
+
+- **Academic Research Pipelines**  
+  Supporting reproducible data analysis workflows for research and scientific studies.
+
+- **Financial Data Analysis**  
+  Automating analysis of financial datasets, trends, and statistical indicators.
+
+- **KPI Monitoring Systems**  
+  Continuous monitoring and automated reporting of key performance indicators.
+
+- **Operational Analytics**  
+  Analyzing operational data to improve efficiency and decision-making.
+
+- **Automated Reporting Systems**  
+  Generating structured analytical reports (PDF, Excel, or HTML) with minimal human intervention.
+
+---
+
+## 📌 Workflow Description
+
+The automation framework executes a structured analytical pipeline designed to transform raw data into actionable insights.
+
+The workflow includes:
+
+1. **Data Loading**  
+   Importing datasets from various sources.
+
+2. **Data Cleaning & Validation**  
+   Handling missing values, inconsistencies, and structural issues.
+
+3. **Feature Processing**  
+   Transforming and preparing variables for analysis.
+
+4. **Statistical & Analytical Processing**  
+   Performing advanced computations and analytical operations.
+
+5. **Insight Visualization**  
+   Generating automated visual representations of findings.
+
+6. **Automated Report Generation**  
+   Producing structured outputs for decision-making and documentation.
+
+All stages are executed programmatically using Python.
+
+---
+
+## 📌 Learning Outcomes
+
+This project demonstrates the development of key competencies in:
+
+✔ **Advanced Data Analysis**  
+Applying statistical and analytical techniques to extract meaningful insights.
+
+✔ **Automation Engineering**  
+Designing automated workflows to minimize manual intervention.
+
+✔ **Data Pipeline Design**  
+Structuring end-to-end analytical processes.
+
+✔ **Statistical Programming**  
+Implementing analytical computations using Python libraries.
+
+✔ **Reproducible Analytics**  
+Ensuring consistent and repeatable analytical workflows.
+
+✔ **Modular System Architecture**  
+Developing scalable and maintainable pipeline components.
+
+---
+
+## 📌 Future Enhancements
+
+Potential improvements and extensions include:
+
+- **Machine Learning Automation**  
+  Integrating predictive modeling and intelligent decision systems.
+
+- **Real-time Data Processing**  
+  Supporting streaming and live data analytics.
+
+- **Dashboard Integration**  
+  Connecting the framework with interactive visualization tools.
+
+- **Cloud Deployment**  
+  Scaling the system using cloud-based infrastructure.
+
+- **AI-driven Insight Generation**  
+  Leveraging AI models for automated interpretation of results.
+
+---
+
+## 📌 Contribution
+
+Contributions, suggestions, and improvements are welcome.
+
+Feel free to fork the repository and submit pull requests.
+
+---
+
+## 📌 License
+
+This project is developed for academic and educational purposes.
+
+Licensed under the MIT License.
+
+---
+
+## 👨‍🎓 Academic Context
+
+This project was developed as a graduation project focusing on:
+
+**Advanced Data Analysis Automation & Python-based Analytical Systems**
