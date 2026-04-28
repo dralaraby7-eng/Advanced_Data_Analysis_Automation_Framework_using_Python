@@ -1,0 +1,159 @@
+-- Blinkit Power BI Core DAX Measures
+-- Create an empty table called: _Measures
+-- Then create these measures inside it.
+
+Total Revenue =
+SUM ( vw_fact_orders[order_total] )
+
+Total Orders =
+DISTINCTCOUNT ( vw_fact_orders[order_id] )
+
+Active Customers =
+DISTINCTCOUNT ( vw_fact_orders[customer_id] )
+
+Average Order Value =
+DIVIDE ( [Total Revenue], [Total Orders] )
+
+Total Units Sold =
+SUM ( vw_fact_order_items[quantity] )
+
+Product Revenue =
+SUM ( vw_fact_order_items[adjusted_line_revenue] )
+
+Estimated Gross Profit =
+SUM ( vw_fact_order_items[estimated_gross_profit] )
+
+Estimated Gross Margin % =
+DIVIDE ( [Estimated Gross Profit], [Product Revenue] )
+
+On Time Orders =
+CALCULATE (
+    [Total Orders],
+    vw_fact_orders[delivery_status] = "On Time"
+)
+
+Delayed Orders =
+[Total Orders] - [On Time Orders]
+
+On Time Delivery % =
+DIVIDE ( [On Time Orders], [Total Orders] )
+
+Delayed Orders % =
+DIVIDE ( [Delayed Orders], [Total Orders] )
+
+Average Delay Minutes =
+AVERAGE ( vw_fact_orders[delivery_delay_minutes] )
+
+Average Rating =
+AVERAGE ( vw_fact_feedback[rating] )
+
+Positive Feedback Count =
+CALCULATE (
+    COUNTROWS ( vw_fact_feedback ),
+    vw_fact_feedback[sentiment] = "Positive"
+)
+
+Negative Feedback Count =
+CALCULATE (
+    COUNTROWS ( vw_fact_feedback ),
+    vw_fact_feedback[sentiment] = "Negative"
+)
+
+Neutral Feedback Count =
+CALCULATE (
+    COUNTROWS ( vw_fact_feedback ),
+    vw_fact_feedback[sentiment] = "Neutral"
+)
+
+Positive Feedback % =
+DIVIDE ( [Positive Feedback Count], COUNTROWS ( vw_fact_feedback ) )
+
+Marketing Spend =
+SUM ( vw_fact_marketing[spend] )
+
+Marketing Revenue =
+SUM ( vw_fact_marketing[revenue_generated] )
+
+Marketing ROAS =
+DIVIDE ( [Marketing Revenue], [Marketing Spend] )
+
+Marketing Clicks =
+SUM ( vw_fact_marketing[clicks] )
+
+Marketing Impressions =
+SUM ( vw_fact_marketing[impressions] )
+
+Marketing Conversions =
+SUM ( vw_fact_marketing[conversions] )
+
+CTR =
+DIVIDE ( [Marketing Clicks], [Marketing Impressions] )
+
+Conversion Rate =
+DIVIDE ( [Marketing Conversions], [Marketing Clicks] )
+
+CPC =
+DIVIDE ( [Marketing Spend], [Marketing Clicks] )
+
+CPA =
+DIVIDE ( [Marketing Spend], [Marketing Conversions] )
+
+Stock Received =
+SUM ( vw_fact_inventory[stock_received] )
+
+Damaged Stock =
+SUM ( vw_fact_inventory[damaged_stock] )
+
+Damage Rate =
+DIVIDE ( [Damaged Stock], [Stock Received] )
+
+Revenue Previous Month =
+CALCULATE (
+    [Total Revenue],
+    DATEADD ( vw_dim_date[date], -1, MONTH )
+)
+
+Revenue MoM % =
+DIVIDE ( [Total Revenue] - [Revenue Previous Month], [Revenue Previous Month] )
+
+Orders Previous Month =
+CALCULATE (
+    [Total Orders],
+    DATEADD ( vw_dim_date[date], -1, MONTH )
+)
+
+Orders MoM % =
+DIVIDE ( [Total Orders] - [Orders Previous Month], [Orders Previous Month] )
+
+Rating Previous Month =
+CALCULATE (
+    [Average Rating],
+    DATEADD ( vw_dim_date[date], -1, MONTH )
+)
+
+Rating MoM Change =
+[Average Rating] - [Rating Previous Month]
+
+Revenue per Customer =
+DIVIDE ( [Total Revenue], [Active Customers] )
+
+Orders per Customer =
+DIVIDE ( [Total Orders], [Active Customers] )
+
+Top Product Revenue Rank =
+RANKX (
+    ALLSELECTED ( vw_dim_products[product_name] ),
+    [Product Revenue],
+    ,
+    DESC,
+    Dense
+)
+
+Category Revenue Rank =
+RANKX (
+    ALLSELECTED ( vw_dim_products[category] ),
+    [Product Revenue],
+    ,
+    DESC,
+    Dense
+)

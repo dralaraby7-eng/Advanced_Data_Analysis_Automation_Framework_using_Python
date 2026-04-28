@@ -1,0 +1,35 @@
+{
+  "name": "Blinkit Smart Commerce Theme",
+  "dataColors": ["#00B050", "#FFD400", "#1F2937", "#6B7280", "#22C55E", "#F59E0B", "#EF4444", "#3B82F6"],
+  "background": "#0F172A",
+  "foreground": "#F8FAFC",
+  "tableAccent": "#00B050",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [
+          {
+            "show": true,
+            "fontColor": { "solid": { "color": "#F8FAFC" } },
+            "fontSize": 12,
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ],
+        "background": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#111827" } },
+            "transparency": 5
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#334155" } },
+            "radius": 8
+          }
+        ]
+      }
+    }
+  }
+}
