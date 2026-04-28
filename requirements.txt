@@ -5,3 +5,7 @@ seaborn
 scipy
 statsmodels
 scikit-learn
+sqlalchemy
+pyodbc
+jupyter
+openpyxl
